@@ -12,8 +12,13 @@ const PORT = process.env.PORT || 5001
 const app = express() //routes control garxa
 
 // Middleware
-app.use(cors())  //error check garxa max chai update garda error ayo vane   ::: mero backend chai kun kun frontend bata access garna milxa vanera
-app.use(express.json()) // jun kunai data json format maa xa ki n ai check garxa 
+ //error check garxa max chai update garda error ayo vane   ::: mero backend chai kun kun frontend bata access garna milxa vanera
+app.use(cors({
+  origin: 'https://mernworkshopfrontend.vercel.app', // your Vercel frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+
+ app.use(express.json()) // jun kunai data json format maa xa ki n ai check garxa 
 
 // Health check endpoint             test garna ko lagi
 app.get('/', (req, res) => {
