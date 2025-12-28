@@ -6,7 +6,7 @@ const router = express.Router()
 //get single note
 router.get('/:id', async(req, res)=>{
     try{
-        const note= await Note.findById(req.params.id)
+        const note= await Note.findById(req.params.id) //parems vaneko url bata id lina ko lagi ho we could use req.body.id pani and req.query.id  
         if(!note)
         {
             return res.status(404).json({message: "Note not found ."})
@@ -65,7 +65,7 @@ router.post('/' ,async(req , res)=>
 })
 
 
-// delete note 
+// delete one note 
 router.delete('/:id', async(req, res) => 
 {
     try{
@@ -85,8 +85,8 @@ router.delete('/:id', async(req, res) =>
     }
 })
 
-// Get all notes
-router.get('/', async (req, res) => {
+// Get all notes         yeha req maa _ xa vaneko unused variable ho,  tyo function ta xa but use garena 
+router.get('/', async (_req, res) => {
     try {
         const notes = await Note.find(); 
         res.json(notes);

@@ -4,18 +4,18 @@ import cors from 'cors'
 import noteRoutes from './routes/noteRoutes.js' 
 import dotenv from 'dotenv'
 
-dotenv.config()
+dotenv.config()  //.env file load gareko 
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/notesapp'
 const PORT = process.env.PORT || 5001
 
-const app = express()
+const app = express() //routes control garxa
 
 // Middleware
-app.use(cors())  //error check garxa max chai update garda error ayo vane 
+app.use(cors())  //error check garxa max chai update garda error ayo vane   ::: mero backend chai kun kun frontend bata access garna milxa vanera
 app.use(express.json()) // jun kunai data json format maa xa ki n ai check garxa 
 
-// Health check endpoint
+// Health check endpoint             test garna ko lagi
 app.get('/', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Server is Live' })
 })

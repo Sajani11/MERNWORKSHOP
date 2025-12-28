@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+                                     //data ko structure define garxa
 const noteSchema = new mongoose.Schema(
   {
     title: {
